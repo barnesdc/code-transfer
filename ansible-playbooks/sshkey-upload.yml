@@ -1,0 +1,8 @@
+---
+- name: Upload SSH Key
+  hosts: remote_server
+  tasks:
+    - name: Copy SSH Key to remote server
+      authorized_key:
+        user: "{{ ansible_user }}"
+        key: "{{ lookup('file', '/path/to/ssh/key') }}"
